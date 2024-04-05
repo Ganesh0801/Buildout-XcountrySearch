@@ -1,0 +1,42 @@
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px;
+    width: 100%;
+}
+
+.input input{
+    width: 50%;
+    padding: 5px;
+}
+
+.container{
+    text-align: center;
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.countryCard{
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    height: 140px;
+    width: 160px;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img{
+    width: 70%;
+    height: 50%;
+}
+
+.name{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
