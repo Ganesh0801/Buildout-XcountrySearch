@@ -22,9 +22,14 @@ const Search = () => {
 
 
   useEffect(()=>{
-     let filteredList = country.filter((val)=>val.name.common.toLowerCase().includes(search.toLowerCase()));
-    console.log(filteredList);
-    setFilter(filteredList)
+    try{
+      let filteredList = country.filter((val)=>val.name.common.toLowerCase().includes(search.toLowerCase()));
+      console.log(filteredList);
+      setFilter(filteredList)
+    }catch(e){
+      console.log(e)
+    }
+     
   },[search,country])
 
  
