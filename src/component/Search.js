@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import styles from "./Search.module.css";
+import  "./Search.css";
 import axios from "axios";
 
 const Search = () => {
@@ -40,51 +40,40 @@ const Search = () => {
 
   return (
     <>
-    <div className={styles.input}>
+    <div className="input">
             <input
             type='text'
             placeholder='search for countries...'
             onChange={handleSearch}
             />
     </div>
+
+    <div className="container">
     {search === "" ?(
-            <div className={styles.container}>
-            {
-                country.map((country,id)=>(
-                    <div className={styles.countryCard} key={id}>
+            country.map((country,id)=>(
+                    <div className="countryCard" key={id}>
                          <img 
-                         className={styles.img}
+                         className="img"
                          src={country.flags.png}
                          alt={country.name.common}/>
         
-                         <p className={styles.name}>{country.name.common}</p>
+                         <p className="name">{country.name.common}</p>
                     </div>
                 ))
-            }
-             
-          </div>
-    ):(
-        <div className={styles.container}>
-    {
-        fliter.map((country,id)=>(
-            <div className={styles.countryCard} key={id}>
+            ):(
+            fliter.map((country,id)=>(
+            <div className="countryCard" key={id}>
                  <img 
-                 className={styles.img}
+                 className="img"
                  src={country.flags.png}
                  alt={country.name.common}/>
 
-                 <p className={styles.name}>{country.name.common}</p>
+                 <p className="name">{country.name.common}</p>
             </div>
         ))
-    }
-     
-  </div>
-    )}
-    
-    
-    
-     
-    </>
+  )}
+    </div>
+  </>
   )
 }
 
