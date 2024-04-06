@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import  "./Search.css";
-import axios from "axios";
+// import axios from "axios";
 
 const Search = () => {
   const[country,setCountry]=useState([]);
@@ -10,9 +10,11 @@ const Search = () => {
   useEffect(()=>{
     const fetchCountry = async()=>{
         try{
-            const response = await axios.get(`https://restcountries.com/v3.1/all`); 
+            const response = await fetch(`https://restcountries.com/v3.1/all`); 
             console.log(response.data);
-            setCountry(response.data)
+
+            const res = await response.json()
+            setCountry(res)
         }catch(e){
             console.log("error while fetching country")
         }
