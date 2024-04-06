@@ -1,68 +1,50 @@
 .input{
-    /* display: flex;
-    flex-direction: row;
-   
-    justify-content: space-around;
-    padding: 50px;
-    width: 100%; */
-
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 5%;
+    align-items: center;
+    justify-content: space-around;
+   height: 60px;
+    width: 100%;
+    background-color: #8a7e7e11;
+    box-shadow: 0px 0px 2px 2px rgba(128, 128, 128, 0.256);
+   
 }
 
 .input input{
-    /* width: 50%;
-    padding: 5px;
-     */
-     font-size: larger;
-    font-weight: bolder;
-    border: 5px solid;
+    width: 50%;
+    height: 30px;
+    padding-left: 10px;
 }
 
 .container{
-    /* text-align: center;
+    margin-top: 12px;
+    text-align: center;
     font-family: sans-serif;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    justify-content: center; */
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
+    justify-content: center;
 }
 
 .countryCard{
-    /* border: 1px solid rgba(0, 0, 0, 0.308);
+    border: 0.5px solid rgba(0, 0, 0, 0.308);
     height: 140px;
     width: 160px;
     padding: 10px;
     margin: 8px;
     border-radius: 8px;
-    overflow: hidden; */
-    padding: 2%;
-    margin: 2%;
-    border: 3px solid;
+    overflow: hidden;
 }
 
-/* .img{
+.img{
     width: 70%;
     height: 50%;
-} */
-
-
-img{
-    width: 15vw;
-    height: 20vh;
 }
 
-/* .name{
+.name{
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     padding-bottom: 10px;
     font-weight: 600;
-} */
+}

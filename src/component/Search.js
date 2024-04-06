@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import  "./Search.css";
-// import axios from "axios";
+import axios from "axios";
 
 const Search = () => {
   const[country,setCountry]=useState([]);
@@ -10,11 +10,9 @@ const Search = () => {
   useEffect(()=>{
     const fetchCountry = async()=>{
         try{
-            const response = await fetch(`https://restcountries.com/v3.1/all`); 
+            const response = await axios.get(`https://restcountries.com/v3.1/all`); 
             console.log(response.data);
-
-            const res = await response.json()
-            setCountry(res)
+            setCountry(response.data)
         }catch(e){
             console.log("error while fetching country")
         }
@@ -51,31 +49,29 @@ const Search = () => {
     </div>
 
     <div className="container">
-        {search === "" ?(
-                country.map((country,id)=>{
-                  return(
-                    <div className="countryCard" key={id}>
-                    {country.name.common!==undefined && country.flags.png!==undefined &&
-                    <div>
-                    <img src={country.flags.png} alt={country.flag}></img>
-                    <h2>{country.name.common}</h2>
-                    </div>}
-                  </div>
-                  )
-                })
-                ):(
-                  fliter.map((country,id) => {
-                    return (
+      {search === "" ?(
+              country.map((country,id)=>(
                       <div className="countryCard" key={id}>
-                        {country.name.common!==undefined && country.flags.png!==undefined &&
-                        <div>
-                        <img src={country.flags.png} alt={country.flag}></img>
-                        <h2>{country.name.common}</h2>
-                        </div>}
+                          <img 
+                          className="img"
+                          src={country.flags.png}
+                          alt={country.name.common}/>
+          
+                          <p className="name">{country.name.common}</p>
                       </div>
-                    );
-                  })
-              )}
+                  ))
+              ):(
+              fliter.map((country,id)=>(
+              <div className="countryCard" key={id}>
+                  <img 
+                  className="img"
+                  src={country.flags.png}
+                  alt={country.name.common}/>
+
+                  <p className="name">{country.name.common}</p>
+              </div>
+          ))
+            )}
     </div>
   </div>
   )
