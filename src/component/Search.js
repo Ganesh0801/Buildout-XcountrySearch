@@ -39,7 +39,7 @@ const Search = () => {
  }
 
   return (
-    <>
+    <div>
     <div className="input">
             <input
             type='text'
@@ -49,31 +49,33 @@ const Search = () => {
     </div>
 
     <div className="container">
-    {search === "" ?(
-            country.map((country,id)=>(
+        {search === "" ?(
+                country.map((country,id)=>{
+                  return(
                     <div className="countryCard" key={id}>
-                         <img 
-                         className="img"
-                         src={country.flags.png}
-                         alt={country.name.common}/>
-        
-                         <p className="name">{country.name.common}</p>
-                    </div>
-                ))
-            ):(
-            fliter.map((country,id)=>(
-            <div className="countryCard" key={id}>
-                 <img 
-                 className="img"
-                 src={country.flags.png}
-                 alt={country.name.common}/>
-
-                 <p className="name">{country.name.common}</p>
-            </div>
-        ))
-  )}
+                    {country.name.common!==undefined && country.flags.png!==undefined &&
+                    <div>
+                    <img src={country.flags.png} alt={country.flag}></img>
+                    <h2>{country.name.common}</h2>
+                    </div>}
+                  </div>
+                  )
+                })
+                ):(
+                  fliter.map((country,id) => {
+                    return (
+                      <div className="countryCard" key={id}>
+                        {country.name.common!==undefined && country.flags.png!==undefined &&
+                        <div>
+                        <img src={country.flags.png} alt={country.flag}></img>
+                        <h2>{country.name.common}</h2>
+                        </div>}
+                      </div>
+                    );
+                  })
+              )}
     </div>
-  </>
+  </div>
   )
 }
 
