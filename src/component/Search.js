@@ -14,7 +14,7 @@ const Search = () => {
             console.log(response.data);
             setCountry(response.data)
         }catch(e){
-            console.log("error while fetching country")
+            console.log("error while fetching country",e)
         }
     }
     fetchCountry()
@@ -53,22 +53,35 @@ const Search = () => {
               country.map((country,id)=>(
                       <div className="countryCard" key={id}>
                           <img 
-                          className="img"
+                        
+                          style={{ width: "70%",
+                            height: "50%"}}
                           src={country.flags.png}
                           alt={country.name.common}/>
           
-                          <p className="name">{country.name.common}</p>
+                          <p 
+                          style={{ fontFamily: "Times New Roman, Times, serif",
+                          fontSize: "20px",
+                          paddingBottom: "10px",
+                          fontWeight: "600"}}>{country.name.common}</p>
                       </div>
                   ))
               ):(
               fliter.map((country,id)=>(
               <div className="countryCard" key={id}>
-                  <img 
-                  className="img"
-                  src={country.flags.png}
-                  alt={country.name.common}/>
+                   <img 
+                        style={{ width: "70%",
+                        height: "50%"}}
+                        src={country.flags.png}
+                        alt={country.name.common}/>
 
-                  <p className="name">{country.name.common}</p>
+                    <p 
+                      style={{ fontFamily: "Times New Roman, Times, serif",
+                      fontSize: "20px",
+                      paddingBottom: "10px",
+                      fontWeight: "600"}}>
+                        {country.name.common}
+                    </p>
               </div>
           ))
             )}
